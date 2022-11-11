@@ -1,10 +1,8 @@
 package test;
 
 import dataHelper.DataHelper;
-import org.apache.hc.core5.util.Asserts;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import page.DashboardPage;
 import page.LoginPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -14,7 +12,6 @@ public class MoneyTransferTest {
     void shouldTransferMoneyBetweenOwnCards() {
         open("http://localhost:9999");
         var loginPage = new LoginPage();
-//    var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCode();
@@ -35,10 +32,9 @@ public class MoneyTransferTest {
     }
 
     @Test
-    void shouldWarnIfAmountIsOver() {
+    void shouldWarnIfAmountIsOverActual() {
         open("http://localhost:9999");
         var loginPage = new LoginPage();
-//    var loginPage = open("http://localhost:9999", LoginPage.class);
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCode();
